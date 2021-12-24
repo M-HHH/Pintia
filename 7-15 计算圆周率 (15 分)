@@ -1,0 +1,65 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int fenzi(int i);
+int fenmu(int j);
+int main(){
+
+    double num;
+    cin >> num;
+    double sum  = 1.0;
+    double temp = 0.0;
+
+    for(int i=1; ; i++){
+        temp = fenzi(i) *1.0 / fenmu(i);
+//        cout << "temp = " << temp << endl;
+        sum += temp;
+        if(temp < num){
+            break;
+        }
+    }
+
+    cout << fixed << setprecision(6) << sum*2<< endl;
+
+//    cout << fenzi(4) << endl;
+//    cout << fenmu(4) << endl;
+
+    return 0;
+}
+
+int fenzi(int i){
+    int sum = 1;
+    for(int k=1; k<=i; k++){
+        sum *= k;
+    }
+    return sum;
+}
+
+int fenmu(int j){
+    int sum = 1;
+    for(int i=1; i<=2*j+1; i+=2){
+        sum *= i;
+    }
+    return sum;
+}
+
+
+==================================================================
+
+#include<iostream>
+#include<iomanip>
+using namespace std;
+int main(){
+    double sum, temp, num;
+    cin >> num;
+    sum = temp = 1.0;
+
+    for(int i=1; temp >= num; i++){
+        temp = (temp * i) / (2 * i + 1);
+        sum += temp;
+    }
+
+    cout << fixed << setprecision(6) << 2 * sum << endl;
+
+    return 0;
+}
