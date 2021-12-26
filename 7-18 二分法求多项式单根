@@ -1,0 +1,39 @@
+#include<iostream>
+#include<iomanip>
+using namespace std;
+double a3, a2, a1, a0;
+double f_result(double x);
+
+int main(){
+    double left, right;
+    cin >> a3 >> a2 >> a1 >> a0;
+    cin >> left >> right;
+
+    while(((right-left) > 0.001) && (f_result(left) * f_result(right) <= 0)){
+        cout << fixed <<setprecision(2);
+        if(f_result(left) == 0){
+            cout << left;
+            return 0;
+        }
+        if(f_result(right) == 0){
+            cout << right;
+            return 0;
+        }
+        double middle = (left + right) / 2;
+        if(f_result(middle) * f_result(right) > 0){
+            right = middle;
+        }
+        else{
+            left = middle;
+        }
+    }
+
+    cout << (right + left) / 2;
+
+
+    return 0;
+}
+
+double f_result(double x){
+    return (x*x*x*a3 + x*x*a2 + x*a1 + a0);
+}
