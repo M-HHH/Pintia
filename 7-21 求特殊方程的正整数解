@@ -1,0 +1,43 @@
+#include<iostream>
+#include<cmath>
+#include<vector>
+using namespace std;
+int main(){
+    int num;
+    cin >> num;
+    int result_x, result_y;
+    bool flag = 0;
+    vector<int> a;
+
+    for(result_x=1; result_x<=num; result_x++){
+        for(result_y=1; result_y<=num; result_y++){
+            if(pow(result_x,2)+ pow(result_y,2) == num  && result_x <= result_y){
+                flag = 1;
+               // cout << result_x << " " << result_y;
+                a.push_back(result_x);
+                a.push_back(result_y);
+//                for(int i=0; i<a.size(); i++){
+//                    if(i % 2 != 0 && i != a.size()-1){
+//                        cout << endl;
+//                    }
+//                }
+            }
+        }
+    }
+
+    for(int i=0; i<a.size(); i++){
+        cout << a[i];
+        if(i % 2 == 0){
+            cout << " ";
+        }
+        if(i % 2 == 1 && i<a.size()-1){
+            cout << endl;
+        }
+    }
+
+    if(!flag){
+        cout << "No Solution";
+    }
+
+    return 0;
+}
