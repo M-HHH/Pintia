@@ -1,0 +1,45 @@
+#include<iostream>
+using namespace std;
+int main(){
+    int minutes, hour;
+    cin >> hour >> minutes;
+    int hour_hour, hour_minutes;
+    int minutes_hour, minutes_minutes;
+    int temp_hour, temp_minutes;
+    int final_hour, final_minutes;
+
+    hour_hour       = hour / 100;
+    hour_minutes    = hour % 100;
+
+    minutes_hour    = minutes / 60;
+    minutes_minutes = minutes % 60;
+
+    temp_hour       = hour_hour + minutes_hour;
+    temp_minutes    = hour_minutes + minutes_minutes;
+
+    if(temp_minutes >= 60){
+        final_hour    = temp_hour + 1;
+        final_minutes = temp_minutes % 60;
+    }
+    else if(temp_minutes < 0){
+        final_hour    = temp_hour - 1;
+        final_minutes = 60 + temp_minutes;
+        if(final_minutes == 60){
+            final_hour += 1;
+            final_minutes = 0;
+        }
+    }
+    else{
+        final_hour = temp_hour;
+        final_minutes = temp_minutes;
+    }
+
+    if(final_minutes < 10){
+        cout << final_hour << "0" << final_minutes;
+    }
+    else{
+        cout << final_hour << final_minutes;
+    }
+
+    return 0;
+}
