@@ -1,0 +1,14 @@
+#include<iostream>
+int main(){
+    int num;
+    int a, b;
+
+    std::cin >> num;
+
+    a = num / 16;
+    b = num % 16;
+    
+    std::cout << a * 10 + b;
+
+    return 0;
+}
